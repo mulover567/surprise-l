@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For แอล เดสปาสิโต 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@300;400;600;700&family=Noto+Sans+Thai:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --peach: #FAC775;
+    --blush: #EF9F27;
+    --rose: #BA7517;
+    --cream: #FFFBF2;
+    --warm: #FFF7E6;
+    --gold: #F2C94C;
+    --deep: #412402;
+    --muted: #8C6030;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Noto Sans Thai',sans-serif; background:var(--cream); color:var(--deep); overflow-x:hidden; }
+  #progress-bar { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--blush),var(--rose),var(--gold)); width:0%; z-index:1000; transition:width 0.1s; }
+  #particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+  .particle { position:absolute; opacity:0; animation:floatParticle linear infinite; pointer-events:none; }
+  @keyframes floatParticle { 0%{transform:translateY(110vh) rotate(0deg);opacity:0} 10%{opacity:0.6} 90%{opacity:0.4} 100%{transform:translateY(-10vh) rotate(360deg);opacity:0} }
+  section { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; }
+  .hero-bg-circles { position:absolute; inset:0; overflow:hidden; z-index:0; }
+  .hero-bg-circles span { position:absolute; border-radius:50%; opacity:0.18; }
+  .hero-bg-circles span:nth-child(1) { width:500px; height:500px; background:radial-gradient(circle,var(--blush),transparent); top:-100px; right:-100px; animation:pulse 6s ease-in-out infinite; }
+  .hero-bg-circles span:nth-child(2) { width:350px; height:350px; background:radial-gradient(circle,var(--peach),transparent); bottom:-80px; left:-80px; animation:pulse 8s ease-in-out infinite reverse; }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:0.18} 50%{transform:scale(1.15);opacity:0.28} }
+  .hero-inner { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; gap:28px; }
+  .envelope { width:140px; height:100px; position:relative; filter:drop-shadow(0 8px 24px rgba(0,0,0,0.15)); transition:transform 0.3s; }
+  .envelope:hover { transform:scale(1.05) rotate(-2deg); }
+  .env-body { width:140px; height:100px; background:linear-gradient(160deg,#FFEEE8,#FFD6E0); border-radius:8px 8px 12px 12px; position:relative; overflow:hidden; }
+  .env-flap { position:absolute; top:0; left:0; width:0; height:0; border-left:70px solid transparent; border-right:70px solid transparent; border-top:60px solid #FFBEC8; transform-origin:top center; transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1); z-index:2; }
+  .env-heart { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:32px; z-index:1; animation:heartbeat 1.5s ease-in-out infinite; }
+  @keyframes heartbeat { 0%,100%{transform:translate(-50%,-50%) scale(1)} 30%{transform:translate(-50%,-50%) scale(1.2)} 60%{transform:translate(-50%,-50%) scale(0.95)} }
+  .envelope:hover .env-flap { transform:rotateX(180deg); }
+  .hero-title { font-family:'Noto Serif Thai',serif; font-size:clamp(32px,7vw,52px); font-weight:700; color:var(--deep); line-height:1.2; }
+  .hero-title span { color:var(--rose); font-style:italic; font-family:'Playfair Display',serif; }
+  .hero-sub { font-size:16px; color:var(--muted); font-weight:300; line-height:1.7; max-width:340px; }
+  .hero-btn { display:inline-flex; align-items:center; gap:10px; background:var(--rose); color:white; border:none; border-radius:50px; padding:16px 36px; font-size:16px; font-family:'Noto Sans Thai',sans-serif; font-weight:500; cursor:pointer; transition:all 0.3s; box-shadow:0 4px 20px rgba(0,0,0,0.15); text-decoration:none; }
+  .hero-btn:hover { filter:brightness(0.9); transform:translateY(-2px); }
+  .scroll-hint { position:absolute; bottom:32px; display:flex; flex-direction:column; align-items:center; gap:6px; opacity:0.45; animation:bounceDown 2s ease-in-out infinite; }
+  .scroll-hint span { font-size:11px; color:var(--muted); letter-spacing:2px; }
+  @keyframes bounceDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+  #timeline { background:var(--warm); padding:80px 24px; min-height:auto; }
+  .section-eyebrow { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--rose); font-weight:500; margin-bottom:12px; }
+  .section-title { font-family:'Noto Serif Thai',serif; font-size:clamp(26px,5vw,40px); font-weight:700; color:var(--deep); line-height:1.3; margin-bottom:48px; text-align:center; }
+  .timeline-wrap { width:100%; max-width:600px; position:relative; }
+  .timeline-line { position:absolute; left:32px; top:20px; bottom:20px; width:2px; background:linear-gradient(to bottom,var(--blush),var(--peach),var(--gold)); border-radius:2px; }
+  .tl-item { display:flex; gap:24px; margin-bottom:40px; opacity:0; transform:translateX(-30px); transition:all 0.6s cubic-bezier(0.34,1.2,0.64,1); }
+  .tl-item.visible { opacity:1; transform:translateX(0); }
+  .tl-dot-col { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:64px; }
+  .tl-icon { width:48px; height:48px; border-radius:50%; background:white; border:2px solid var(--blush); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .tl-content { background:white; border-radius:16px; padding:20px 24px; flex:1; border:1px solid rgba(0,0,0,0.06); }
+  .tl-date { font-size:11px; color:var(--rose); font-weight:500; letter-spacing:1px; margin-bottom:6px; }
+  .tl-head { font-family:'Noto Serif Thai',serif; font-size:17px; font-weight:600; color:var(--deep); margin-bottom:6px; }
+  .tl-body { font-size:14px; color:var(--muted); line-height:1.7; }
+  #quiz { background:var(--cream); }
+  .quiz-card { background:white; border-radius:28px; padding:40px 36px; max-width:520px; width:100%; box-shadow:0 8px 40px rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.04); }
+  .quiz-progress { display:flex; gap:6px; margin-bottom:32px; }
+  .qp-dot { flex:1; height:4px; border-radius:2px; background:#F0E0D8; transition:background 0.4s; }
+  .qp-dot.done { background:var(--rose); }
+  .qp-dot.active { background:var(--blush); }
+  .quiz-q { font-family:'Noto Serif Thai',serif; font-size:clamp(18px,4vw,22px); font-weight:600; color:var(--deep); line-height:1.5; margin-bottom:24px; }
+  .quiz-opts { display:flex; flex-direction:column; gap:12px; }
+  .opt-btn { background:var(--warm); border:2px solid transparent; border-radius:14px; padding:14px 20px; font-size:15px; font-family:'Noto Sans Thai',sans-serif; color:var(--deep); text-align:left; cursor:pointer; transition:all 0.25s; display:flex; align-items:center; gap:12px; }
+  .opt-btn:hover { border-color:var(--blush); }
+  .opt-btn.correct { background:#F0FFF4; border-color:#68D391; color:#2F855A; animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+  .opt-btn.wrong { background:#FFF5F5; border-color:#FC8181; color:#C53030; animation:shake 0.4s ease; }
+  .opt-btn:disabled { cursor:not-allowed; }
+  @keyframes popIn { 0%{transform:scale(0.95)} 60%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .opt-label { width:28px; height:28px; border-radius:50%; background:white; border:1.5px solid #E8D0C8; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; flex-shrink:0; }
+  .quiz-feedback { display:none; margin-top:20px; padding:16px 20px; border-radius:14px; font-size:14px; line-height:1.6; }
+  .quiz-feedback.show { display:block; }
+  .quiz-feedback.correct-fb { background:#F0FFF4; color:#276749; border:1px solid #C6F6D5; }
+  .quiz-feedback.wrong-fb { background:#FFF5F5; color:#9B2C2C; border:1px solid #FED7D7; }
+  .quiz-next { display:none; margin-top:20px; background:var(--rose); color:white; border:none; border-radius:50px; padding:14px 32px; font-size:15px; font-family:'Noto Sans Thai',sans-serif; font-weight:500; cursor:pointer; transition:all 0.3s; width:100%; }
+  .quiz-next:hover { filter:brightness(0.9); transform:translateY(-1px); }
+  .quiz-next.show { display:block; animation:fadeUp 0.4s ease; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  #confetti-canvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:999; }
+  #surprise { background:linear-gradient(160deg,var(--warm) 0%,var(--cream) 100%); display:none; flex-direction:column; align-items:center; padding:80px 24px; }
+  #surprise.visible { display:flex; }
+  .surprise-inner { max-width:560px; width:100%; display:flex; flex-direction:column; align-items:center; gap:32px; }
+  .surprise-badge { display:inline-flex; align-items:center; gap:8px; background:white; border:1.5px solid var(--blush); border-radius:50px; padding:8px 20px; font-size:13px; color:var(--rose); font-weight:500; animation:fadeDown 0.6s ease 0.2s both; }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+  .surprise-title { font-family:'Noto Serif Thai',serif; font-size:clamp(28px,6vw,46px); font-weight:700; color:var(--deep); text-align:center; line-height:1.3; animation:fadeDown 0.6s ease 0.4s both; }
+  .surprise-title em { color:var(--rose); font-style:italic; font-family:'Playfair Display',serif; }
+  .letter-card { background:white; border-radius:24px; padding:36px 32px; width:100%; border:1px solid rgba(0,0,0,0.06); position:relative; animation:fadeUp 0.7s ease 0.6s both; }
+  .letter-card::before { content:'"'; position:absolute; top:16px; left:24px; font-family:'Playfair Display',serif; font-size:72px; color:var(--peach); line-height:1; opacity:0.6; }
+  .letter-to { font-size:13px; color:var(--rose); font-weight:500; letter-spacing:1px; margin-bottom:12px; }
+  .letter-body { font-family:'Noto Serif Thai',serif; font-size:16px; color:var(--deep); line-height:2; font-weight:300; padding-top:16px; }
+  .letter-sign { margin-top:24px; font-size:14px; color:var(--muted); text-align:right; font-style:italic; font-family:'Playfair Display',serif; }
+  .coupon-title { font-family:'Noto Serif Thai',serif; font-size:20px; font-weight:700; color:var(--deep); text-align:center; animation:fadeUp 0.6s ease 0.8s both; }
+  .coupons-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; width:100%; animation:fadeUp 0.6s ease 1s both; }
+  .coupon { background:white; border-radius:20px; padding:24px 20px; border:2px dashed var(--blush); display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; position:relative; overflow:hidden; cursor:pointer; transition:all 0.3s; }
+  .coupon::before,.coupon::after { content:''; position:absolute; width:24px; height:24px; background:var(--cream); border-radius:50%; top:50%; transform:translateY(-50%); }
+  .coupon::before { left:-12px; }
+  .coupon::after { right:-12px; }
+  .coupon:hover { transform:translateY(-4px); border-color:var(--rose); }
+  .coupon.used { opacity:0.5; cursor:not-allowed; }
+  .coupon-icon { font-size:32px; }
+  .coupon-head { font-size:14px; font-weight:600; color:var(--deep); font-family:'Noto Serif Thai',serif; }
+  .coupon-sub { font-size:12px; color:var(--muted); line-height:1.5; }
+  .coupon-exp { font-size:10px; color:var(--blush); margin-top:4px; }
+  .yt-player-wrap { width:100%; animation:fadeUp 0.6s ease 1.2s both; }
+  .yt-label { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--rose); font-weight:500; margin-bottom:10px; text-align:center; }
+  .yt-card { background:white; border-radius:20px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); }
+  .yt-thumbnail-wrap { position:relative; width:100%; padding-top:56.25%; cursor:pointer; overflow:hidden; background:linear-gradient(135deg,var(--warm) 0%,var(--peach) 50%,var(--blush) 100%); }
+  .yt-thumb-content { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+  .yt-thumb-emoji { font-size:48px; animation:heartbeat 1.8s ease-in-out infinite; }
+  .yt-thumb-text { font-size:14px; font-weight:500; color:var(--deep); font-family:"Noto Sans Thai",sans-serif; opacity:0.8; }
+  .yt-play-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0); transition:background 0.2s; }
+  .yt-thumbnail-wrap:hover .yt-play-overlay { background:rgba(0,0,0,0.06); }
+  .yt-play-circle { width:64px; height:64px; border-radius:50%; background:var(--rose); display:flex; align-items:center; justify-content:center; font-size:24px; color:white; box-shadow:0 4px 20px rgba(0,0,0,0.3); transition:transform 0.2s; }
+  .yt-thumbnail-wrap:hover .yt-play-circle { transform:scale(1.1); }
+  .yt-iframe-wrap { position:relative; width:100%; padding-top:56.25%; display:none; }
+  .yt-iframe-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+  .yt-info { padding:16px 20px; display:flex; align-items:center; gap:12px; }
+  .yt-disc { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--blush),var(--peach)); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; animation:rotateDisk 8s linear infinite paused; }
+  .yt-disc.playing { animation-play-state:running; }
+  @keyframes rotateDisk { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  .yt-song-title { font-size:15px; font-weight:600; color:var(--deep); margin-bottom:2px; }
+  .yt-song-sub { font-size:12px; color:var(--muted); }
+  .hearts-burst { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:998; overflow:hidden; }
+  .burst-heart { position:absolute; animation:burstUp 2s ease-out forwards; }
+  @keyframes burstUp { 0%{transform:translateY(0) scale(0.5);opacity:1} 100%{transform:translateY(-80vh) scale(1.2);opacity:0} }
+  footer { text-align:center; padding:40px 24px; font-size:13px; color:var(--muted); background:var(--cream); }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div id="particles"></div>
+<canvas id="confetti-canvas"></canvas>
+<div class="hearts-burst" id="hearts-burst"></div>
+
+<section id="hero">
+  <div class="hero-bg-circles"><span></span><span></span></div>
+  <div class="hero-inner">
+    <div class="envelope">
+      <div class="env-body">
+        <div class="env-flap"></div>
+        <div class="env-heart">🩷</div>
+      </div>
+    </div>
+    <h1 class="hero-title">มีอะไรบางอย่างอยากบอก<br><span>แอล เดสปาสิโต</span></h1>
+    <p class="hero-sub">ข้างในนี้มีเรื่องราว ความรู้สึก<br>และของขวัญพิเศษรอแอลอยู่นะ</p>
+    <a href="#timeline" class="hero-btn">เปิดดูสิ! ↓</a>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M8 2v14M2 10l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+</section>
+
+<section id="timeline">
+  <p class="section-eyebrow">ความทรงจำ</p>
+  <h2 class="section-title">เรื่องราวของเรา ✨</h2>
+  <div class="timeline-wrap">
+    <div class="timeline-line"></div>
+    
+    <div class="tl-item" data-delay="0">
+      <div class="tl-dot-col"><div class="tl-icon">🌱</div></div>
+      <div class="tl-content">
+        <div class="tl-date">จุดเริ่มต้น</div>
+        <div class="tl-head">วันที่เราได้รู้จักกัน</div>
+        <div class="tl-body">ทุกอย่างเริ่มต้นจากก้าวเล็กๆ และวันนั้นก็เป็นก้าวที่ดีที่สุดที่เคยเจอมา</div>
+      </div>
+    </div>
+    <div class="tl-item" data-delay="150">
+      <div class="tl-dot-col"><div class="tl-icon">☀️</div></div>
+      <div class="tl-content">
+        <div class="tl-date">ช่วงเวลาดีๆ</div>
+        <div class="tl-head">วันที่เห็นแกทำงานหนัก</div>
+        <div class="tl-body">เห็นแกทุ่มเทกับทุกสิ่งที่ทำ ไม่เคยยอมแพ้ง่ายๆ มันทำให้รู้สึกได้ว่าแกมีพลังมากแค่ไหน</div>
+      </div>
+    </div>
+    <div class="tl-item" data-delay="300">
+      <div class="tl-dot-col"><div class="tl-icon">🌸</div></div>
+      <div class="tl-content">
+        <div class="tl-date">ก่อนหน้านี้</div>
+        <div class="tl-head">ช่วงเวลาที่ยาก</div>
+        <div class="tl-body">แกผ่านมันมาได้ทุกครั้ง บางทีดูเหนื่อย แต่ก็ยังยิ้มให้คนรอบข้างอยู่เสมอ — มันสวยมากเลยนะ</div>
+      </div>
+    </div>
+    <div class="tl-item" data-delay="450">
+      <div class="tl-dot-col"><div class="tl-icon">🎯</div></div>
+      <div class="tl-content">
+        <div class="tl-date">ตอนนี้ → วันนี้</div>
+        <div class="tl-head">ขอบคุณที่เป็นแบบนี้</div>
+        <div class="tl-body">อยากบอกว่าสิ่งที่แกทำทุกวัน มันสำคัญมาก และคนรอบข้างก็เห็นแกเสมอนะ 🧡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <p class="section-eyebrow">ทดสอบความรู้</p>
+  <h2 class="section-title">ทายซิ รู้จักกันแค่ไหน 🤔</h2>
+  <div class="quiz-card">
+    <div class="quiz-progress">
+      <div class="qp-dot active" id="qp-0"></div><div class="qp-dot" id="qp-1"></div><div class="qp-dot" id="qp-2"></div>
+    </div>
+    <div id="quiz-container"></div>
+  </div>
+</section>
+
+<section id="surprise">
+  <div class="surprise-inner">
+    <div class="surprise-badge">🎊 เฉลยแล้ว! ยินดีด้วยนะ</div>
+    <h2 class="surprise-title">สำหรับ <em>แอล เดสปาสิโต</em><br>ที่รักและชื่นชม 🩷</h2>
+    <div class="letter-card">
+      <p class="letter-to">ถึง · แอล เดสปาสิโต</p>
+      <div class="letter-body">อยากบอกว่า ขอบคุณที่เป็นตัวเองในแบบที่แกเป็นเสมอมา<br><br>ไม่ว่าวันไหนจะยากแค่ไหน แกก็ยังลุกขึ้นมา ยังพยายาม ยังยิ้มให้คนอื่นได้<br>มันไม่ใช่เรื่องเล็กน้อยเลยนะ — มันคือพลังที่น้อยคนมาก<br><br>ขอเป็นกำลังใจให้แกทุกก้าวที่เดินต่อไป<br>แอลทำได้ และ เดสต้าก็เชื่อในตัวแอลเสมอ 🌸</div>
+      <div class="letter-sign">ด้วยรัก — จากด้อมเดสต้าของเดสปาที่พร้อมจะชัพพอรต์เสมอ ✨</div>
+    </div>
+    <p class="coupon-title">🎁 คูปองพิเศษสำหรับแอล เดสปาสิโตโดยเฉพาะ</p>
+    <div class="coupons-grid">
+      
+      <div class="coupon" onclick="useCoupon(this)">
+        <div class="coupon-icon">🧡</div>
+        <div class="coupon-head">วันตามใจแอล 100%</div>
+        <div class="coupon-sub">ให้เดสต้าทำอะไรก้ได้ เราจะตามใจแอลหมดเลย</div>
+        <div class="coupon-exp">ไม่มีวันหมดอายุ</div>
+      </div>
+      <div class="coupon" onclick="useCoupon(this)">
+        <div class="coupon-icon">🎧</div>
+        <div class="coupon-head">คูปองฟังเรื่อง</div>
+        <div class="coupon-sub">เวลามีเรื่องทุกใจอะไรระบายกับเดสต้าได้เลย เราพร้อมจะฟังอยู่ตรงนี้เสมอ</div>
+        <div class="coupon-exp">ใช้ได้เมื่อต้องการ</div>
+      </div>
+      <div class="coupon" onclick="useCoupon(this)">
+        <div class="coupon-icon">🍊</div>
+        <div class="coupon-head">ขออะไรก็ได้</div>
+        <div class="coupon-sub">ขออะไรก็ได้จากเดสต้า ขอมาได้เลย</div>
+        <div class="coupon-exp">ใช้ได้เมื่อต้องการ</div>
+      </div>
+      <div class="coupon" onclick="useCoupon(this)">
+        <div class="coupon-icon">🤎</div>
+        <div class="coupon-head">คูปองกำลังใจฉุกเฉิน</div>
+        <div class="coupon-sub">วันไหนแอลเหนื่อยจากการเรียน การทำงาน หรือสตรีมเสร็จแล้วหมดพลัง เราจะไปฮีลใจให้ทันทีวันไหนรู้สึกแย่ จะส่งพลังงานดีๆ ให้ทันที</div>
+        <div class="coupon-exp">ใช้ได้ไม่จำกัดครั้ง</div>
+      </div>
+    </div>
+    <div class="yt-player-wrap">
+      <p class="yt-label">🎵 เพลงพิเศษสำหรับแอล</p>
+      <div class="yt-card">
+        <div class="yt-thumbnail-wrap" id="yt-thumb" onclick="loadYT()">
+          <div class="yt-thumb-content">
+            <div class="yt-thumb-emoji">🎵</div>
+            <div class="yt-thumb-text">ชาร์จแบต (powerbank) Acoustic ver. · MEAN Band</div>
+          </div>
+          <div class="yt-play-overlay">
+            <div class="yt-play-circle">▶</div>
+          </div>
+        </div>
+        <div class="yt-iframe-wrap" id="yt-iframe-wrap"></div>
+        <div class="yt-info">
+          <div class="yt-disc" id="yt-disc">🎵</div>
+          <div>
+            <div class="yt-song-title">รักนานๆ</div>
+            <div class="yt-song-sub">กดเล่นแล้วอ่านจดหมายอีกรอบนะ 🩷</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>สร้างด้วยความรักและกำลังใจ 🩷 · สำหรับ แอล เดสปาสิโต</p></footer>
+
+<script>
+window.addEventListener('scroll',()=>{const s=window.scrollY,t=document.body.scrollHeight-window.innerHeight;document.getElementById('progress-bar').style.width=(s/t*100)+'%';});
+const emojis=['🌸','✨','🩷','💛','🌟','🌺','💫'];
+const pc=document.getElementById('particles');
+for(let i=0;i<14;i++){const p=document.createElement('div');p.className='particle';p.textContent=emojis[Math.floor(Math.random()*emojis.length)];p.style.left=Math.random()*100+'%';p.style.animationDuration=(12+Math.random()*16)+'s';p.style.animationDelay=(Math.random()*12)+'s';p.style.fontSize=(14+Math.random()*10)+'px';pc.appendChild(p);}
+const tlItems=document.querySelectorAll('.tl-item');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const d=parseInt(e.target.dataset.delay||0);setTimeout(()=>e.target.classList.add('visible'),d);obs.unobserve(e.target);}});},{threshold:0.2});
+tlItems.forEach(el=>obs.observe(el));
+const questions=[{"q":"อะไรคือสิ่งที่แอลมักจะทำเมื่อเจอความกดดัน? 💪","opts":[{"text":"ยอมแพ้ทันที","fb":"ไม่ใช่แน่นอน! แกไม่ใช่คนแบบนั้นเลย","correct":false},{"text":"ทุ่มเทหนักขึ้นกว่าเดิม","fb":"🎉 ถูกต้อง! นั่นแหละคือพลังของแอล","correct":true},{"text":"หนีปัญหา","fb":"ลองใหม่นะ — แกเข้มแข็งกว่านั้นเยอะเลย","correct":false}]},{"q":"ของขวัญที่ดีที่สุดที่แอลมีคืออะไร? 🌟","opts":[{"text":"เงินและทอง","fb":"ค่อนข้างจะไม่ใช่เลย ลองอีกที!","correct":false},{"text":"รูปหล่อ","fb":"จริงนะ แต่ยังไม่ใช่คำตอบที่ถูกต้องที่สุด 😄","correct":false},{"text":"ใจดีและทำให้คนรอบข้างรู้สึกดี","fb":"✨ ใช่เลย! นั่นคือสิ่งที่ทำให้แอลพิเศษ","correct":true}]},{"q":"เมื่อใดที่แอลเดสปาสิโตมีคุณค่ามากที่สุด? 🩷","opts":[{"text":"เฉพาะตอนที่ประสบความสำเร็จ","fb":"ไม่ใช่เลย — คุณค่าของคนไม่ได้ขึ้นอยู่กับความสำเร็จ","correct":false},{"text":"เฉพาะตอนที่มีความสุข","fb":"ลองคิดใหม่นะ — คำตอบมันลึกกว่านั้น","correct":false},{"text":"ทุกวัน ทุกเวลา ไม่มีเงื่อนไข","fb":"🌸 ถูกต้องเสมอ! แอลมีคุณค่าทุกวัน","correct":true}]}];
+let currentQ=0;
+function renderQuestion(){const q=questions[currentQ];const c=document.getElementById('quiz-container');const letters=['ก','ข','ค'];c.innerHTML=`<p class="quiz-q">${q.q}</p><div class="quiz-opts">${q.opts.map((o,i)=>`<button class="opt-btn" onclick="checkAnswer(this,${o.correct},${i})" data-feedback="${o.fb}"><span class="opt-label">${letters[i]}</span>${o.text}</button>`).join('')}</div><div class="quiz-feedback" id="qfb"></div><button class="quiz-next" id="qnext" onclick="nextQuestion()">${currentQ<questions.length-1?'ข้อถัดไป →':'เปิดของขวัญ! 🎁'}</button>`;}
+function checkAnswer(btn,correct,idx){const all=document.querySelectorAll('.opt-btn');all.forEach(b=>b.disabled=true);const fb=document.getElementById('qfb');fb.textContent=btn.dataset.feedback;if(correct){btn.classList.add('correct');fb.className='quiz-feedback show correct-fb';if(currentQ===questions.length-1)launchConfetti();}else{btn.classList.add('wrong');fb.className='quiz-feedback show wrong-fb';const cb=Array.from(all).find((_,i)=>questions[currentQ].opts[i].correct);if(cb)setTimeout(()=>cb.classList.add('correct'),400);}document.getElementById('qnext').classList.add('show');updateProgress();}
+function updateProgress(){for(let i=0;i<questions.length;i++){const d=document.getElementById('qp-'+i);if(i<currentQ)d.className='qp-dot done';else if(i===currentQ)d.className='qp-dot active';else d.className='qp-dot';}}
+function nextQuestion(){currentQ++;if(currentQ>=questions.length){launchConfetti();setTimeout(()=>{const s=document.getElementById('surprise');s.classList.add('visible');s.scrollIntoView({behavior:'smooth'});launchHearts();},800);return;}updateProgress();renderQuestion();}
+function launchConfetti(){const canvas=document.getElementById('confetti-canvas');const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const pieces=[];const colors=['#FF8FAB','#FFD166','#06D6A0','#74C7EC','#F7A8C4','#FFCBA4'];for(let i=0;i<120;i++){pieces.push({x:Math.random()*canvas.width,y:-20,r:4+Math.random()*6,c:colors[Math.floor(Math.random()*colors.length)],vy:2+Math.random()*4,vx:(Math.random()-0.5)*3,spin:Math.random()*0.2,angle:Math.random()*Math.PI*2,shape:Math.random()>0.5?'circle':'rect'});}let frame;function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);let alive=false;pieces.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.angle+=p.spin;p.vy+=0.08;if(p.y<canvas.height+20)alive=true;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);ctx.fillStyle=p.c;if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.r,0,Math.PI*2);ctx.fill();}else{ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);}ctx.restore();});if(alive)frame=requestAnimationFrame(animate);else ctx.clearRect(0,0,canvas.width,canvas.height);}cancelAnimationFrame(frame);animate();}
+function launchHearts(){const b=document.getElementById('hearts-burst');const hs=['🩷','💛','🌸','✨','💖','🌟'];for(let i=0;i<24;i++){setTimeout(()=>{const h=document.createElement('div');h.className='burst-heart';h.textContent=hs[Math.floor(Math.random()*hs.length)];h.style.left=(10+Math.random()*80)+'%';h.style.bottom='0';h.style.fontSize=(16+Math.random()*16)+'px';h.style.animationDuration=(1.5+Math.random())+'s';h.style.animationDelay=(Math.random()*0.8)+'s';b.appendChild(h);setTimeout(()=>h.remove(),3000);},i*80);}}
+function useCoupon(el){if(el.classList.contains('used'))return;el.classList.add('used');}
+function loadYT(){
+  document.getElementById('yt-thumb').style.display='none';
+  const wrap=document.getElementById('yt-iframe-wrap');
+  wrap.style.display='block';
+  wrap.innerHTML='<iframe src="https://www.youtube.com/embed/oVdfYjooT5c?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  document.getElementById('yt-disc').classList.add('playing');
+}
+renderQuestion();updateProgress();
+</script>
+</body>
+</html>
